@@ -3,24 +3,28 @@ package hu.java.dummy.entities;
 import javax.persistence.*;
 import java.util.Date;
 
-@Table(name = "tank")
+@Table
 @Entity
 public class Tank {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "name")
+    @Column
     private String name;
-
     @Column(name = "created_date", nullable = false)
     private Date createdDate;
-
     @Column(name = "last_modified_date", nullable = false)
-    private Date lastModfiedDate;
+    private Date lastModifiedDate;
+
 
     public Tank() {
+    }
+
+    public Tank(String name, Date createdDate, Date lastModifiedDate) {
+        this.name = name;
+        this.createdDate = createdDate;
+        this.lastModifiedDate = lastModifiedDate;
     }
 
     public Long getId() {
@@ -47,11 +51,11 @@ public class Tank {
         this.createdDate = createdDate;
     }
 
-    public Date getLastModfiedDate() {
-        return lastModfiedDate;
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
     }
 
-    public void setLastModfiedDate(Date lastModfiedDate) {
-        this.lastModfiedDate = lastModfiedDate;
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
 }
